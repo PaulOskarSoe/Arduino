@@ -66,6 +66,7 @@ app.get('/data/temp', (req, res) => {
         })
         .catch((err) => {
             console.error(err)
+            return res.send(403)
         })
 })
 

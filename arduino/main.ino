@@ -64,7 +64,7 @@ void loop() {
             // lugemine eba6nnestus, testimise eesm2rgil saadame suvalised andmed serverisse
             if (isnan(h) || isnan(t)) {
                 Serial.println("Failed to read from DHT sensor, sending out mock data!");
-                String sensorDataRequest = serverName + "sensor/hum" + String(t) + "/" + String(h); //API url: localhost:8080/sensor/hum/{temperature}/{humdity} saadab andmed serverisse
+                String sensorDataRequest = serverName + "sensor/tempHum/20/40"; //API url: localhost:8080/sensor/hum/{temperature}/{humdity} saadab andmed serverisse
                 http.begin(client, sensorDataRequest.c_str());
 
                 int httpResponseCode = http.GET();
@@ -77,7 +77,7 @@ void loop() {
             }
 
             // andmed saati korrektselt k2tte sensorilt, ning saadame need serverisse
-            String sensorDataRequest = serverName + "sensor/hum" + String(t) + "/" + String(h); //API url: localhost:8080/sensor/hum/{temperature}/{humdity} saadab andmed serverisse
+            String sensorDataRequest = serverName + "sensor/tempHum" + String(t) + "/" + String(h); //API url: localhost:8080/sensor/hum/{temperature}/{humdity} saadab andmed serverisse
             http.begin(client, sensorDataRequest.c_str());
 
             int httpResponseCode = http.GET();
